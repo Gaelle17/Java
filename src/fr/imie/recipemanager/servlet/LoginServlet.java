@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// Set standard HTTP/1.1 no-cache headers.
@@ -30,6 +30,6 @@ public class LoginServlet extends HttpServlet {
 		req.getSession().setAttribute("pwd", pwd);
 		resp.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
 		resp.setHeader("Pragma", "no-cache");
-		resp.sendRedirect("/RecipeManager/auth/listProduct");
+		resp.sendRedirect("/RecipeManager/listRecipe");
 	}
 }

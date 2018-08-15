@@ -15,11 +15,11 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String pwd;
-	@OneToMany(mappedBy="owner")
+	/*@OneToMany(mappedBy="owner")
 	List<Recipe> recipes;
 	@OneToMany(mappedBy="owner")
 	List<Ingredient> ingredients;
-
+*/
 	public User() {}
 
 	public Long getId() {
@@ -37,7 +37,7 @@ public class User {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-
+/*
 	public List<Recipe> getRecipes() {
 		return recipes;
 	}
@@ -53,5 +53,5 @@ public class User {
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
-	
+	*/
 }

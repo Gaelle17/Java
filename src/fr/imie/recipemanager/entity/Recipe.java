@@ -1,5 +1,6 @@
 package fr.imie.recipemanager.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,23 +12,24 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Recipe {
+public class Recipe implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	private String name;
 	private String description;
-	private List<String> instructions;
+	//private List<String> instructions;
 	private Float difficultyLevel;
 	private Long preparationTime;
-	private List<String> pictures;
-	@ManyToMany(mappedBy="recipes")
+	//private List<String> pictures;
+	/*@ManyToMany(mappedBy="recipes")
 	private List<Ingredient> ingredients;
 	@ManyToOne
 	@JoinColumn(name="owner")
 	private User owner;
-	
+	*/
 	public Recipe() {}
 
 	public Long getId() {
@@ -54,14 +56,14 @@ public class Recipe {
 		this.description = description;
 	}
 
-	public List<String> getInstructions() {
+	/*public List<String> getInstructions() {
 		return instructions;
 	}
 
 	public void setInstructions(List<String> instructions) {
 		this.instructions = instructions;
 	}
-
+*/
 	public Float getDifficultyLevel() {
 		return difficultyLevel;
 	}
@@ -77,7 +79,7 @@ public class Recipe {
 	public void setPreparationTime(Long preparationTime) {
 		this.preparationTime = preparationTime;
 	}
-
+/*
 	public List<String> getPictures() {
 		return pictures;
 	}
@@ -100,6 +102,6 @@ public class Recipe {
 
 	public void setOwner(User owner) {
 		this.owner = owner;
-	}
+	}*/
 
 }

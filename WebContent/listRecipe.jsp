@@ -19,17 +19,19 @@
 						<th>Description</th>
 						<th>Difficulté</th>
 						<th>temps de preparation</th>
+						<th>Créateur</th>
 					</tr>
 				</thead>
 				
 				<tbody>
 					<c:forEach var="r" items="${recipes}">
-							<tr onclick="/*location.href = 'http://localhost:8080/SupCommerce/showProduct?id=${p.id}'*/;">
+							<tr onclick="location.href = 'http://localhost:8080/RecipeManager/showRecipe?id=${r.getId()}';">
 								<th>${r.getId()}</th>
 								<td>${r.getName()}</td>
 								<td>${r.getDescription()}</td>
 								<td>${r.getDifficultyLevel()}</td>
 								<td>${r.getPreparationTime()}</td>
+								<td>${r.getOwner().getUsername()}</td>
 							</tr>
 					</c:forEach>
 				</tbody>

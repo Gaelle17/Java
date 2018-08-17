@@ -14,6 +14,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	private String username;
 	private String pwd;
 	/*@OneToMany(mappedBy="owner")
 	List<Recipe> recipes;
@@ -21,6 +22,14 @@ public class User {
 	List<Ingredient> ingredients;
 */
 	public User() {}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public Long getId() {
 		return id;
@@ -30,8 +39,8 @@ public class User {
 		this.id = id;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public Boolean verifyPwd(String testPwd) {
+		return pwd.equals(testPwd);
 	}
 
 	public void setPwd(String pwd) {

@@ -22,13 +22,7 @@ import fr.imie.recipemanager.entity.Recipe;
 public class ListRecipeServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	private EntityManagerFactory emf;
 	
-	@Override
-	public void init() throws ServletException {
-		this.emf = Persistence.createEntityManagerFactory("RMPU");
-		super.init();
-	}
 	
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,17 +31,7 @@ public class ListRecipeServlet extends HttpServlet {
 		// Set standard HTTP/1.0 no-cache header.
 		response.setHeader("Pragma", "no-cache");
 		
-
-		EntityManager em = emf.createEntityManager();
-		TypedQuery<Recipe> q = em.createQuery("SELECT r FROM Recipe r",Recipe.class);
-		List<Recipe> recipes = q.getResultList();
-		em.close();
-		
-		// create fake recipe for test purpose
-		//ArrayList<Recipe> recipes = new ArrayList<Recipe>();
-		//Recipe r = new Recipe();
-		//r.setName("confiture de rose");
-		//recipes.add(r);
+		List<Recipe> recipes = Recipe.getAll();
 		
 		//pass the recipe to the jsp
 		request.setAttribute("recipes", recipes);
@@ -56,11 +40,5 @@ public class ListRecipeServlet extends HttpServlet {
 		request.getRequestDispatcher("/listRecipe.jsp").forward(request, response);
 	}
 
-
-	@Override
-	public void destroy() {
-		this.emf.close();
-		super.destroy();
-	}
 
 }

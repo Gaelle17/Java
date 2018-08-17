@@ -4,16 +4,35 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.servlet.ServletException;
 
 @Entity
 public class Recipe implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	public static List<Recipe> getAll() {
+		//Create em & emf
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RMPU");
+		EntityManager em = emf.createEntityManager();
+		//Execute the query
+		TypedQuery<Recipe> q = em.createQuery("SELECT r FROM Recipe r",Recipe.class);
+		List<Recipe> recipes = q.getResultList();
+		//Close em & emf
+		em.close();
+		emf.close();
+		
+		return recipes;
+	}
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

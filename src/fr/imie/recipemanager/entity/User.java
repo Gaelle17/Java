@@ -16,9 +16,9 @@ public class User {
 	private Long id;
 	private String username;
 	private String pwd;
-	/*@OneToMany(mappedBy="owner")
-	List<Recipe> recipes;
 	@OneToMany(mappedBy="owner")
+	List<Recipe> recipes;
+	/*@OneToMany(mappedBy="owner")
 	List<Ingredient> ingredients;
 */
 	public User() {}
@@ -46,7 +46,7 @@ public class User {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-/*
+
 	public List<Recipe> getRecipes() {
 		return recipes;
 	}
@@ -54,7 +54,7 @@ public class User {
 	public void setRecipes(List<Recipe> recipes) {
 		this.recipes = recipes;
 	}
-
+/*
 	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}

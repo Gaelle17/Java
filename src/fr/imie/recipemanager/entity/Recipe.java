@@ -14,7 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-import javax.servlet.ServletException;
 
 @Entity
 public class Recipe implements Serializable {
@@ -45,10 +44,10 @@ public class Recipe implements Serializable {
 	//private List<String> pictures;
 	/*@ManyToMany(mappedBy="recipes")
 	private List<Ingredient> ingredients;
-	@ManyToOne
+	*/@ManyToOne
 	@JoinColumn(name="owner")
 	private User owner;
-	*/
+	
 	public Recipe() {}
 
 	public Long getId() {
@@ -114,13 +113,13 @@ public class Recipe implements Serializable {
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
-
+*/
 	public User getOwner() {
 		return owner;
 	}
 
 	public void setOwner(User owner) {
 		this.owner = owner;
-	}*/
+	}
 
 }

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.imie.recipemanager.entity.Recipe;
+import fr.imie.recipemanager.entity.User;
 
 @WebServlet("/createRecipe")
 public class CreateRecipeServlet extends HttpServlet{
@@ -64,6 +65,8 @@ public class CreateRecipeServlet extends HttpServlet{
 		//create the entity manager & transaction
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction t = em.getTransaction();
+
+		recipe.setOwner(em.find(User.class,request.getSession().getAttribute("userId")));
 		
 		try {
 			t.begin();

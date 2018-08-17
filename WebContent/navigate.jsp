@@ -7,7 +7,7 @@
   	<c:if test="${!(empty sessionScope.userId)}">
   		<a class="nav-link" href="/RecipeManager/listRecipe">Les recettes</a>
   		<a class="nav-link" href="/RecipeManager/listMyRecipe">Mes recettes</a>
-		<a class="nav-link" href="/RecipeManager/auth/"></a>
+		<a class="nav-link" href="/RecipeManager/listMyIngredient">Mes ingredients</a>
 		<a class="nav-link" href="/RecipeManager/auth/"></a>
   		<a class="nav-link" href="/RecipeManager/logout">Logout</a>
   	</c:if>

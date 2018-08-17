@@ -19,10 +19,10 @@ public class Ingredient {
 	private Long id;
 	private String name;
 	private Float price;
-	@ManyToMany
+	/*@ManyToMany
 	@JoinTable(name = "ingredient_recipe")
 	private List<Recipe> recipes;
-	@ManyToOne
+	*/@ManyToOne
 	@JoinColumn(name="owner")
 	private User owner;
 	private Boolean shared;
@@ -54,7 +54,7 @@ public class Ingredient {
 	public void setPrice(Float price) {
 		this.price = price;
 	}
-
+/*
 	public List<Recipe> getRecipes() {
 		return recipes;
 	}
@@ -62,7 +62,7 @@ public class Ingredient {
 	public void setRecipes(List<Recipe> recipes) {
 		this.recipes = recipes;
 	}
-
+*/
 	public User getOwner() {
 		return owner;
 	}

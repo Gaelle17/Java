@@ -6,19 +6,19 @@
 		<title>${recipe.getName()} - ${recipe.getOwner().getUsername()}</title>
 	</head>
 	<body>
+		<form action="" method="POST">
 		<div class="container">
 			<%@ include file="navigate.jsp" %>
-			<h1>${recipe.getName()}</h1>
-			<p>
+			<input type="text" name="name" value ="${recipe.getName()}"/>
+			<div>
 				By : ${recipe.getOwner().getUsername()} | 
-				Difficulté : ${recipe.getDifficultyLevel()} | 
-				Preparation : ${recipe.getPreparationTime()} 
-				<c:if test="${recipe.getOwner().getId() == sessionScope.userId}">
-					 | <a href="editRecipe?id=${recipe.getId()}">Editer</a>
-				</c:if>
-			</p>
+				Difficulté : <input type="number" name="difficultyLevel" value="${recipe.getDifficultyLevel()}"/> | 
+				Preparation : <input type="number" name="preparationTime" value="${recipe.getPreparationTime()}"/> 
+				<input type="submit" value="enregistrer"/>
+			</div>
 			
-			<div class="description">${recipe.getDescription()}</div>
+			<textarea class="description" name="description">${recipe.getDescription()}</textarea>
 		</div>
+		</form>
 	</body>
 </html>
